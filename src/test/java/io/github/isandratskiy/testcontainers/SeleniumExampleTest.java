@@ -1,6 +1,7 @@
 package io.github.isandratskiy.testcontainers;
 
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -8,27 +9,28 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
 class SeleniumExampleTest {
+    private WebDriver driver;
 
     @Container
-    private BrowserWebDriverContainer container = new BrowserWebDriverContainer();
+    private BrowserWebDriverContainer container =
+            new BrowserWebDriverContainer().withCapabilities(new ChromeOptions());
 
     @BeforeEach
     void setup() {
-        container.withCapabilities(new ChromeOptions());
         container.start();
-        container.getWebDriver().get("https://the-internet.herokuapp.com");
+        driver = container.getWebDriver();
+        driver.get("https://the-internet.herokuapp.com");
     }
 
     @Test
     void shouldBeStarted() {
-        Assertions.assertTrue(container.isRunning());
         Assertions.assertEquals(
-                "https://the-internet.herokuapp.com/", container.getWebDriver().getCurrentUrl()
+                "https://the-internet.herokuapp.com/", driver.getCurrentUrl()
         );
     }
 
     @AfterEach
-    void teardown() {
+    void tearDown() {
         container.stop();
     }
 }

@@ -1,4 +1,4 @@
-package io.github.isandratskiy;
+package io.github.isandratskiy.selenium.jupiter;
 
 import com.codeborne.selenide.*;
 import io.github.bonigarcia.seljup.SelenideConfiguration;
@@ -13,18 +13,18 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SeleniumExtension.class)
 class MultipleAssertExampleTest {
     @SelenideConfiguration
-    static SelenideConfig selenideConfig = new SelenideConfig().browser(FIREFOX)
-            .startMaximized(true)
-            .headless(true);
+    static SelenideConfig selenideConfig =
+            new SelenideConfig().browser(FIREFOX).startMaximized(true).headless(true);
 
     @Test
     void testSelenideConfig(SelenideDriver driver) {
         driver.open("https://the-internet.herokuapp.com");
+        ElementsCollection elements = driver.$$("#content > ul > li");
         assertAll(
-                () -> assertEquals(43, driver.$$("#content > ul > li").size()),
+                () -> assertEquals(43, elements.size()),
                 () -> assertEquals(
                         "Basic Auth (user and pass: admin)",
-                        driver.$$("#content > ul > li").findBy(text("Basic")).text()
+                        elements.findBy(text("Basic")).text()
                 ));
     }
 }
