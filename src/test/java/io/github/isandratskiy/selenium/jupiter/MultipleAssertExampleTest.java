@@ -22,9 +22,7 @@ class MultipleAssertExampleTest {
         ElementsCollection elements = driver.$$("#content > ul > li");
         assertAll(
                 () -> assertEquals(43, elements.size()),
-                () -> assertEquals(
-                        "Basic Auth (user and pass: admin)",
-                        elements.findBy(text("Basic")).text()
-                ));
+                () -> assertEquals("Basic Auth (user and pass: admin)", elements.findBy(text("Basic")).text())
+        );
     }
 }

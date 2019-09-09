@@ -13,10 +13,12 @@ public class SetupSelenideExtension implements BeforeEachCallback, AfterEachCall
     @Override
     public void afterEach(ExtensionContext context) {
         getWebDriver().quit();
+        System.out.println("DRIVER IS CLOSED");
     }
 
     @Override
     public void beforeEach(ExtensionContext context) {
+        System.out.println("SETUP SELENIDE CONFIG");
         browser = ChromeDriverProvider.class.getName();
         startMaximized = true;
         fastSetValue = true;
