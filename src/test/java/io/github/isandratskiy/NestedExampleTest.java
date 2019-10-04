@@ -35,11 +35,10 @@ class NestedExampleTest {
         @Test
         void secondNestedTest() {
             System.out.println("SECOND IS RUNNING");
+
             assertEquals(
                     "https://the-internet.herokuapp.com/", getWebDriver().getCurrentUrl()
             );
         }
     }
-
-
 }
