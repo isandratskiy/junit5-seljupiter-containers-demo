@@ -13,8 +13,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
 @Disabled
-class AndroidJupiterTest {
-
+class JupiterAndroidTest {
     @RegisterExtension
     static SeleniumExtension seleniumExtension = new SeleniumExtension();
 
@@ -24,11 +23,14 @@ class AndroidJupiterTest {
     }
 
     @Test
-    void testAndroid(@DockerBrowser(
-            type = ANDROID, version = "5.0.1", deviceName = "Nexus 5") RemoteWebDriver driver) {
+    void testAndroid(
+            @DockerBrowser(
+                    type = ANDROID,
+                    version = "5.0.1",
+                    deviceName = "Nexus 5") RemoteWebDriver driver) {
         driver.get("https://bonigarcia.github.io/selenium-jupiter/");
-        assertThat(driver.getTitle(),
-                containsString("JUnit 5 extension for Selenium"));
+        assertThat(
+                driver.getTitle(), containsString("JUnit 5 extension for Selenium")
+        );
     }
-
 }
