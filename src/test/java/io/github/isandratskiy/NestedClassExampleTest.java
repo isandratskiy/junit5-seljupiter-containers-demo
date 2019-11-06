@@ -11,7 +11,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SetupSelenideExtension.class)
-class NestedExampleTest {
+class NestedClassExampleTest {
 
     @BeforeEach
     void arrange() {
@@ -30,7 +30,7 @@ class NestedExampleTest {
         @Test
         void firstNestedFailedTest() {
             assertEquals(
-                    "https://the-internet.com/", getWebDriver().getCurrentUrl()
+                    "https://the-fake.com/", getWebDriver().getCurrentUrl()
             );
         }
     }
@@ -47,7 +47,7 @@ class NestedExampleTest {
         @Test
         void secondNestedFailedTest() {
             assertEquals(
-                    "https://the-internet.com/", getWebDriver().getCurrentUrl()
+                    "https://the-fake.com/", getWebDriver().getCurrentUrl()
             );
         }
     }
