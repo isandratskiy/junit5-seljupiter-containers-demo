@@ -8,16 +8,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
 class TestContainersSeleniumTest extends TestContainersBaseTest {
+    private static final String URL = "https://the-internet.herokuapp.com";
 
     @BeforeEach
     void arrange() {
-        driver.get("https://the-internet.herokuapp.com");
+        driver.get(URL);
     }
 
     @Test
     void canStartSeleniumFromContainer() {
         assertEquals(
-                "https://the-internet.herokuapp.com/", driver.getCurrentUrl()
+                URL, driver.getCurrentUrl()
         );
     }
 }
