@@ -18,7 +18,9 @@ class JupiterDockerSelenideTest {
     private static final String URL = "https://the-internet.herokuapp.com/";
 
     @BeforeEach
-    void arrange(@DockerBrowser(type = CHROME, version = "77.0") SelenideDriver selenide) {
+    void arrange(@DockerBrowser(
+            type = CHROME,
+            version = "77.0") SelenideDriver selenide) {
         setWebDriver(selenide.getWebDriver());
     }
 
