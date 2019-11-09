@@ -26,16 +26,12 @@ class NestedClassExampleTest {
     class FirstNested {
         @Test
         void firstNestedTest() {
-            assertEquals(
-                    URL, getWebDriver().getCurrentUrl()
-            );
+            assertEquals(URL, getWebDriver().getCurrentUrl());
         }
 
         @Test
         void firstNestedFailedTest() {
-            assertEquals(
-                    FAKE_URL, getWebDriver().getCurrentUrl()
-            );
+            assertEquals(FAKE_URL, getWebDriver().getCurrentUrl());
         }
     }
 
@@ -43,16 +39,12 @@ class NestedClassExampleTest {
     class SecondNested {
         @Test
         void secondNestedTest() {
-            assertEquals(
-                    URL, getWebDriver().getCurrentUrl()
-            );
+            assertEquals(URL, getWebDriver().getCurrentUrl());
         }
 
         @Test
         void secondNestedFailedTest() {
-            assertEquals(
-                    FAKE_URL, getWebDriver().getCurrentUrl()
-            );
+            assertEquals(FAKE_URL, getWebDriver().getCurrentUrl());
         }
     }
 }
