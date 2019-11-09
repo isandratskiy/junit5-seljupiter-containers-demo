@@ -17,8 +17,6 @@ class TestContainersSeleniumTest extends TestContainersBaseTest {
 
     @Test
     void canStartSeleniumFromContainer() {
-        assertEquals(
-                URL, driver.getCurrentUrl()
-        );
+        assertEquals(URL, driver.getCurrentUrl());
     }
 }

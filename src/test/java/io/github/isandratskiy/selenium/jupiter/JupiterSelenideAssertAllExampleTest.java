@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideDriver;
 import io.github.bonigarcia.seljup.SelenideConfiguration;
 import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -15,7 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SeleniumExtension.class)
-class JupiterSelenideMultipleAssertExampleTest {
+@DisplayName("Jupiter Selenide with assertAll example")
+class JupiterSelenideAssertAllExampleTest {
     private SelenideDriver driver;
 
     @SelenideConfiguration
@@ -28,15 +30,16 @@ class JupiterSelenideMultipleAssertExampleTest {
     @BeforeEach
     void arrange(SelenideDriver driver) {
         this.driver = driver;
+        this.driver.open("https://the-internet.herokuapp.com");
     }
 
     @Test
     void canAssertAllWithSelenideConfig() {
-        driver.open("https://the-internet.herokuapp.com");
+        String title = "Basic Auth (user and pass: admin)";
         ElementsCollection elements = driver.$$("#content > ul > li");
         assertAll(
                 () -> assertEquals(43, elements.size()),
-                () -> assertEquals("Basic Auth (user and pass: admin)", elements.findBy(text("Basic")).text())
+                () -> assertEquals(title, elements.findBy(text("Basic")).text())
         );
     }
 }
