@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
 class TestContainersSeleniumTest extends TestContainersBaseTest {
-    private static final String URL = "https://the-internet.herokuapp.com";
+    private static final String URL = "https://the-internet.herokuapp.com/";
 
     @BeforeEach
     void arrange() {
