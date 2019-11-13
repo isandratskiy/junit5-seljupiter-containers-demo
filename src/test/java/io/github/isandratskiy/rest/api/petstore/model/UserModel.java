@@ -3,8 +3,6 @@ package io.github.isandratskiy.rest.api.petstore.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import javax.annotation.Generated;
-
 import static java.lang.Integer.*;
 import static org.apache.commons.lang3.RandomStringUtils.*;
 
@@ -12,7 +10,6 @@ import static org.apache.commons.lang3.RandomStringUtils.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-@Generated("com.robohorse.robopojogenerator")
 public class UserModel {
 	@Builder.Default
 	@JsonProperty("firstName")
