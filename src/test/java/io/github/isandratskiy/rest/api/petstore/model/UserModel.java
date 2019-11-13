@@ -16,15 +16,15 @@ import static org.apache.commons.lang3.RandomStringUtils.*;
 public class UserModel {
 	@Builder.Default
 	@JsonProperty("firstName")
-	private String firstName = "Ivan";
+	private String firstName = "Micky";
 
 	@Builder.Default
 	@JsonProperty("lastName")
-	private String lastName = "Ivanovich";
+	private String lastName = "Mouse";
 
 	@Builder.Default
 	@JsonProperty("password")
-	private String password = "45322";
+	private String password = "admin".concat(randomAlphabetic(5).toLowerCase());
 
 	@Builder.Default
 	@JsonProperty("userStatus")
@@ -36,7 +36,7 @@ public class UserModel {
 
 	@Builder.Default
 	@JsonProperty("id")
-	private int id = valueOf(random(3, "1234567890"));
+	private int id = valueOf(randomNumeric(3));
 
 	@Builder.Default
 	@JsonProperty("email")
@@ -44,5 +44,5 @@ public class UserModel {
 
 	@Builder.Default
 	@JsonProperty("username")
-	private String username = "notloh";
+	private String username = "micky".concat(randomAlphabetic(5).toLowerCase());
 }

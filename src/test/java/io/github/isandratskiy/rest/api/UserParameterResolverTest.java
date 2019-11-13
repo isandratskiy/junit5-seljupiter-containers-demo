@@ -1,16 +1,17 @@
 package io.github.isandratskiy.rest.api;
 
+import io.github.isandratskiy.rest.api.petstore.UserModelResolver;
 import io.github.isandratskiy.rest.api.petstore.model.UserModel;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-public class UserParameterResolverTest {
+@ExtendWith(UserModelResolver.class)
+class UserParameterResolverTest {
     @Test
     void test(UserModel user) {
-        /*UserModel user = new UserModel().toBuilder()
-                .email("LOOOHHHHHH")
-                .build();
         System.out.println(
-                user.getEmail() + "\n" +
-                user.getFirstName());*/
+                user.getUsername() + "\n" +
+                user.getPassword() + "\n" +
+                user.getId());
     }
 }
