@@ -10,6 +10,7 @@ import static org.apache.commons.lang3.RandomStringUtils.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
+@ToString
 public class UserModel {
 	@Builder.Default
 	@JsonProperty("firstName")

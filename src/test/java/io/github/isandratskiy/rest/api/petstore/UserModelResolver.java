@@ -14,6 +14,12 @@ public class UserModelResolver implements ParameterResolver {
 
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
+        if (parameterContext.isAnnotated(InvalidUser.class)) {
+            return new UserModel().toBuilder()
+                    .email("958945849584985")
+                    .userStatus(909898989)
+                    .build();
+        }
         return new UserModel().toBuilder().build();
     }
 }
