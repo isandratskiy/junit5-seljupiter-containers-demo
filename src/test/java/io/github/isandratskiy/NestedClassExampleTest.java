@@ -9,7 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SetupSelenideExtension.class)
 @DisplayName("Nested tests example")
@@ -25,26 +25,26 @@ class NestedClassExampleTest {
     @Nested
     class FirstNested {
         @Test
-        void firstNestedTest() {
+        void firstNestedEqualTest() {
             assertEquals(URL, getWebDriver().getCurrentUrl());
         }
 
         @Test
-        void firstNestedFailedTest() {
-            assertEquals(FAKE_URL, getWebDriver().getCurrentUrl());
+        void firstNestedNotEqualTest() {
+            assertNotEquals(FAKE_URL, getWebDriver().getCurrentUrl());
         }
     }
 
     @Nested
     class SecondNested {
         @Test
-        void secondNestedTest() {
+        void secondNestedEqualTest() {
             assertEquals(URL, getWebDriver().getCurrentUrl());
         }
 
         @Test
-        void secondNestedFailedTest() {
-            assertEquals(FAKE_URL, getWebDriver().getCurrentUrl());
+        void secondNestedNotEqualTest() {
+            assertNotEquals(FAKE_URL, getWebDriver().getCurrentUrl());
         }
     }
 }
