@@ -1,6 +1,6 @@
-package io.github.isandratskiy.rest.api.petstore;
+package io.github.isandratskiy.rest.api.resolver;
 
-import io.github.isandratskiy.rest.api.petstore.model.UserModel;
+import io.github.isandratskiy.rest.api.model.UserModel;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
@@ -16,8 +16,7 @@ public class UserModelResolver implements ParameterResolver {
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
         if (parameterContext.isAnnotated(InvalidUser.class)) {
             return new UserModel().toBuilder()
-                    .email("958945849584985")
-                    .userStatus(909898989)
+                    .username("Invalid")
                     .build();
         }
         return new UserModel().toBuilder().build();

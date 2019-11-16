@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.api.petstore.model;
+package io.github.isandratskiy.rest.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -42,5 +42,5 @@ public class UserModel {
 
 	@Builder.Default
 	@JsonProperty("username")
-	private String username = "micky".concat(randomAlphabetic(5).toLowerCase());
+	private String username = "Micky";
 }
