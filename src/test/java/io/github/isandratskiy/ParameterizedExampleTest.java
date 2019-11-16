@@ -15,6 +15,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.*;
 
 @Testcontainers
 @DisplayName("Parametrize tests with testcontainers")
@@ -38,10 +39,10 @@ class ParameterizedExampleTest {
 
     private static Stream<Arguments> browserProvider() {
         return Stream.of(
-                Arguments.of(
+                of(
                         new BrowserWebDriverContainer().withCapabilities(new ChromeOptions()), "chrome"
                 ),
-                Arguments.of(
+                of(
                         new BrowserWebDriverContainer().withCapabilities(new FirefoxOptions()), "firefox"
                 )
         );
