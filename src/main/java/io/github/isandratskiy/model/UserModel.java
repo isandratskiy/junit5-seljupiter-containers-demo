@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.junit5.feature.model;
+package io.github.isandratskiy.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
