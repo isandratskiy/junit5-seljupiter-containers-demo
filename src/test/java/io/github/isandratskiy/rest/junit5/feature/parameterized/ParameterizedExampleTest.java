@@ -1,4 +1,4 @@
-package io.github.isandratskiy;
+package io.github.isandratskiy.rest.junit5.feature.parameterized;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.TestInstance;
@@ -19,7 +19,6 @@ import static org.junit.jupiter.params.provider.Arguments.*;
 
 @Testcontainers
 @DisplayName("Parametrize tests with testcontainers")
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ParameterizedExampleTest {
     private static final String DEMO_URL = "https://www.saucedemo.com/";
     private RemoteWebDriver driver;

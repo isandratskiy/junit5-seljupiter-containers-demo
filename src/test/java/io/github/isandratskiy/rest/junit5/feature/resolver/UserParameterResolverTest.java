@@ -1,8 +1,6 @@
-package io.github.isandratskiy.rest.api;
+package io.github.isandratskiy.rest.junit5.feature.resolver;
 
-import io.github.isandratskiy.rest.api.resolver.UserModelResolver;
-import io.github.isandratskiy.rest.api.resolver.InvalidUser;
-import io.github.isandratskiy.rest.api.model.UserModel;
+import io.github.isandratskiy.rest.junit5.feature.model.UserModel;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
