@@ -22,7 +22,7 @@ public class UserModel {
 
 	@Builder.Default
 	@JsonProperty("password")
-	private String password = "admin".concat(randomAlphabetic(5).toLowerCase());
+	private String password = "admin".concat(randomAlphabetic(5));
 
 	@Builder.Default
 	@JsonProperty("userStatus")
@@ -38,7 +38,7 @@ public class UserModel {
 
 	@Builder.Default
 	@JsonProperty("email")
-	private String email = "testingloh@gmail.com";
+	private String email = "testmick@mick.com";
 
 	@Builder.Default
 	@JsonProperty("username")
