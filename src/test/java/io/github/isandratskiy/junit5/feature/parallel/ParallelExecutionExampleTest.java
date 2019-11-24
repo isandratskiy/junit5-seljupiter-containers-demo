@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.junit5.feature.parallel;
+package io.github.isandratskiy.junit5.feature.parallel;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

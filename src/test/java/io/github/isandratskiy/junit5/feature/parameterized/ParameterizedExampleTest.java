@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.junit5.feature.parameterized;
+package io.github.isandratskiy.junit5.feature.parameterized;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

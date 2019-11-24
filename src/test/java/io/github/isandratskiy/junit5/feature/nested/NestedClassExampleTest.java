@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.junit5.feature.nested;
+package io.github.isandratskiy.junit5.feature.nested;
 
 import io.github.isandratskiy.extension.SetupSelenideExtension;
 import org.junit.jupiter.api.BeforeEach;

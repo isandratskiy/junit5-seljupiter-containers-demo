@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.junit5.feature.resolver;
+package io.github.isandratskiy.junit5.feature.resolver;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

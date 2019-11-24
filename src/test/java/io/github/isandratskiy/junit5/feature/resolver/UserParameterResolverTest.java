@@ -1,4 +1,4 @@
-package io.github.isandratskiy.rest.junit5.feature.resolver;
+package io.github.isandratskiy.junit5.feature.resolver;
 
 import io.github.isandratskiy.model.UserModel;
 import org.junit.jupiter.api.DisplayName;
