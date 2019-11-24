@@ -3,8 +3,9 @@ package io.github.isandratskiy.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import static java.lang.Integer.*;
-import static org.apache.commons.lang3.RandomStringUtils.*;
+import static java.lang.Integer.valueOf;
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
+import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 
 @Getter
 @NoArgsConstructor
