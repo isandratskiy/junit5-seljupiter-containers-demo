@@ -1,6 +1,6 @@
-package io.github.isandratskiy.junit5.feature.meta_annotations;
+package io.github.isandratskiy.junit5.feature.meta_annotation;
 
-import io.github.isandratskiy.extension.SetupTestContainersExtension;
+import io.github.isandratskiy.extension.SetupSelenideTestContainersExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Target({ ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Testcontainers
-@ExtendWith(SetupTestContainersExtension.class)
-public @interface BaseSetupWithTestContainers {
+@ExtendWith(SetupSelenideTestContainersExtension.class)
+public @interface SetupSelenideContainers {
 }

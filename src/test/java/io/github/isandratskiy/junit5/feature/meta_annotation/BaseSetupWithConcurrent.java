@@ -1,4 +1,4 @@
-package io.github.isandratskiy.junit5.feature.meta_annotations;
+package io.github.isandratskiy.junit5.feature.meta_annotation;
 
 import io.github.isandratskiy.extension.SetupSelenideExtension;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,6 @@
 package io.github.isandratskiy.junit5.feature.nested;
 
 import io.github.isandratskiy.extension.SetupSelenideExtension;
-import io.github.isandratskiy.junit5.feature.meta_annotations.BaseSetupWithConcurrent;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;

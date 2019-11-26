@@ -1,6 +1,6 @@
 package io.github.isandratskiy.extension;
 
-import io.github.isandratskiy.driver.WebDriverProvider;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.junit.jupiter.Container;
 
-public class SetupTestContainersExtension implements BeforeEachCallback, AfterEachCallback {
+public class SetupSelenideTestContainersExtension implements BeforeEachCallback, AfterEachCallback {
     private WebDriver driver;
 
     @Container
@@ -20,14 +20,12 @@ public class SetupTestContainersExtension implements BeforeEachCallback, AfterEa
     public void afterEach(ExtensionContext context) {
         this.driver.quit();
         this.container.stop();
-        WebDriverProvider.cleanUp();
     }
 
     @Override
     public void beforeEach(ExtensionContext context) {
         this.container.start();
         this.driver = container.getWebDriver();
-        this.driver.get("https://the-internet.herokuapp.com/");
-        WebDriverProvider.setupDriver(driver);
+        WebDriverRunner.setWebDriver(driver);
     }
 }
