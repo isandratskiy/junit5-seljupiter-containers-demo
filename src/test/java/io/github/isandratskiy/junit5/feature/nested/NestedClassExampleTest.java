@@ -1,17 +1,19 @@
 package io.github.isandratskiy.junit5.feature.nested;
 
 import io.github.isandratskiy.extension.SetupSelenideExtension;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import io.github.isandratskiy.junit5.feature.meta_annotations.BaseSetupWithConcurrent;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
+@Execution(CONCURRENT)
 @ExtendWith(SetupSelenideExtension.class)
+//@BaseSetupWithConcurrent
 @DisplayName("Nested tests example")
 class NestedClassExampleTest {
     private static final String URL = "https://the-internet.herokuapp.com/";
