@@ -8,13 +8,19 @@ import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.io.File;
+
+import static org.testcontainers.containers.BrowserWebDriverContainer.*;
+
 @Testcontainers
 class TestContainersBaseTest {
     protected WebDriver driver;
 
     @Container
     private BrowserWebDriverContainer container =
-            new BrowserWebDriverContainer().withCapabilities(new ChromeOptions());
+            new BrowserWebDriverContainer()
+                    .withCapabilities(new ChromeOptions())
+                    .withRecordingMode(VncRecordingMode.RECORD_ALL, new File("src/test/resources"));
 
     @BeforeEach
     void start() {
