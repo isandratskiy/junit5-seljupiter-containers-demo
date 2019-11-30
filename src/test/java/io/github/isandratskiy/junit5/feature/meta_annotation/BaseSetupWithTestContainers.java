@@ -1,7 +1,6 @@
 package io.github.isandratskiy.junit5.feature.meta_annotation;
 
-import io.github.isandratskiy.extension.SetupTestContainersExtension;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.lang.annotation.ElementType;
@@ -9,9 +8,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ ElementType.TYPE})
+import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
+
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Testcontainers
-@ExtendWith(SetupTestContainersExtension.class)
+@Execution(CONCURRENT)
 public @interface BaseSetupWithTestContainers {
 }

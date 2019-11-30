@@ -1,6 +1,5 @@
 package io.github.isandratskiy.extension;
 
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -9,12 +8,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.junit.jupiter.Container;
 
+import static com.codeborne.selenide.WebDriverRunner.*;
+
 public class SetupSelenideTestContainersExtension implements BeforeEachCallback, AfterEachCallback {
     private WebDriver driver;
 
     @Container
     private BrowserWebDriverContainer container =
-            new BrowserWebDriverContainer().withCapabilities(new ChromeOptions());
+            new BrowserWebDriverContainer().withCapabilities(
+                    new ChromeOptions()
+            );
 
     @Override
     public void afterEach(ExtensionContext context) {
@@ -26,6 +29,6 @@ public class SetupSelenideTestContainersExtension implements BeforeEachCallback,
     public void beforeEach(ExtensionContext context) {
         this.container.start();
         this.driver = container.getWebDriver();
-        WebDriverRunner.setWebDriver(driver);
+        setWebDriver(driver);
     }
 }

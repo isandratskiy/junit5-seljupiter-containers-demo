@@ -1,43 +1,56 @@
 package io.github.isandratskiy.testcontainers;
 
+import io.github.isandratskiy.extension.SetupTestContainersExtension;
 import io.github.isandratskiy.junit5.feature.meta_annotation.BaseSetupWithTestContainers;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static io.github.isandratskiy.driver.WebDriverContainer.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
+import static org.junit.jupiter.params.provider.Arguments.*;
 
-//@Execution(CONCURRENT)
 @BaseSetupWithTestContainers
+//@ExtendWith(SetupTestContainersExtension.class)
 class WebDriverTestContainersExample {
-    private static final String URL = "https://the-internet.herokuapp.com/";
+    private static final String HEROKUAPP_COM = "https://the-internet.herokuapp.com/";
+    private static final String HEROKUAPP_COM_BROKEN_IMAGES = "https://the-internet.herokuapp.com/broken_images";
+    private static final String HEROKUAPP_COM_ENTRY_AD = "https://the-internet.herokuapp.com/entry_ad";
+    private static final String HEROKUAPP_COM_LOGIN = "https://the-internet.herokuapp.com/login";
+
+    @RegisterExtension
+    SetupTestContainersExtension setup =
+            new SetupTestContainersExtension();
 
     @Test
     void shouldLoadSiteUnderProviderFromContainer() {
+        getDriver().get(HEROKUAPP_COM);
         assertEquals(
-                URL, getDriver().getCurrentUrl()
+                HEROKUAPP_COM, getDriver().getCurrentUrl()
         );
     }
 
-    @Test
-    void shouldLoadSiteUnderProviderFromContainer1() {
+    //Parametrize with parallel execution
+    @ParameterizedTest(name = "should load - {0} site under provider from container")
+    @MethodSource("urlProvider")
+    void shouldLoadParametrizeSiteUnderProviderFromContainer(String url) {
+        getDriver().get(url);
         assertEquals(
-                URL, getDriver().getCurrentUrl()
+                url, getDriver().getCurrentUrl()
         );
     }
 
-    @Test
-    void shouldLoadSiteUnderProviderFromContainer2() {
-        assertEquals(
-                URL, getDriver().getCurrentUrl()
-        );
-    }
-
-    @Test
-    void shouldLoadSiteUnderProviderFromContainer3() {
-        assertEquals(
-                URL, getDriver().getCurrentUrl()
+    private static Stream<Arguments> urlProvider() {
+        return Stream.of(
+                of(HEROKUAPP_COM),
+                of(HEROKUAPP_COM_BROKEN_IMAGES),
+                of(HEROKUAPP_COM_ENTRY_AD),
+                of(HEROKUAPP_COM_LOGIN)
         );
     }
 }

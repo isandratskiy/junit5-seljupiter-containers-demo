@@ -23,7 +23,6 @@ public class SetupTestContainersExtension implements BeforeEachCallback, AfterEa
     public void beforeEach(ExtensionContext context) {
         this.container.start();
         this.driver = container.getWebDriver();
-        this.driver.get("https://the-internet.herokuapp.com/");
         setDriver(driver);
     }
 
