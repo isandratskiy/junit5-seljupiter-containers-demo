@@ -11,7 +11,7 @@ repositories {
 }
 
 val junitVersion = "5.5.2"
-val testContainersVersion = "1.12.0"
+val testContainersVersion = "1.12.3"
 val lombokVersion = "1.18.10"
 val selenideVersion = "5.5.0"
 val seleniumVersion = "3.141.59"

@@ -17,6 +17,8 @@ class TestContainersSeleniumTest extends TestContainersBaseTest {
 
     @Test
     void shouldStartSeleniumFromContainer() {
-        assertEquals(URL, driver.getCurrentUrl());
+        assertEquals(
+                "https://the-internet.herokuapp.com111", driver.getCurrentUrl()
+        );
     }
 }
