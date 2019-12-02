@@ -5,18 +5,20 @@ import org.junit.jupiter.api.Test;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.openqa.selenium.By.*;
 
 @Testcontainers
 class TestContainersSeleniumTest extends TestContainersBaseTest {
     @BeforeEach
     void arrange() {
-        driver.get("https://the-internet.herokuapp.com/");
+        driver.get("https://the-internet.herokuapp.com");
     }
 
     @Test
-    void shouldStartSeleniumFromContainer() {
+    void canOpenAuthenticationPage() {
+        driver.findElement(linkText("Form Authentication")).click();
         assertEquals(
-                "https://fake.url.com/", driver.getCurrentUrl()
+                "https://the-internet.herokuapp.com/login", driver.getCurrentUrl()
         );
     }
 }
