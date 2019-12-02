@@ -2,8 +2,7 @@ package io.github.isandratskiy.driver;
 
 import org.openqa.selenium.WebDriver;
 
-public abstract class WebDriverContainer {
-
+public abstract class WebDriverProvider {
 	private static final ThreadLocal<WebDriver> DRIVER_CONTAINER = new ThreadLocal<>();
 
 	public static WebDriver getDriver() {

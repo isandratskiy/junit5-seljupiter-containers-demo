@@ -11,6 +11,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.File;
 
+import static org.junit.jupiter.api.Assumptions.*;
 import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.*;
 
 @Testcontainers
@@ -25,8 +26,8 @@ class TestContainersBaseTest {
 
     @BeforeEach
     void start() {
-        this.container.start();
         this.driver = container.getWebDriver();
+        assumeTrue(container.isRunning());
     }
 
     @AfterEach

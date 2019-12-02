@@ -12,10 +12,11 @@ import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.*;
 import static io.github.bonigarcia.seljup.BrowserType.CHROME;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SeleniumExtension.class)
 class JupiterDockerSelenideTest {
-    private static final String URL = "https://the-internet.herokuapp.com/";
+    private static final String HEROKUAPP_COM = "https://the-internet.herokuapp.com/";
 
     @BeforeEach
     void arrange(@DockerBrowser(
@@ -26,14 +27,16 @@ class JupiterDockerSelenideTest {
 
     @Test
     void canFindAllAvailableExamples() {
-        open(URL, MainPage.class)
-                .getRows()
-                .shouldHave(sizeGreaterThan(10));
+        open(HEROKUAPP_COM, MainPage.class).getExamplesList().shouldHave(
+                sizeGreaterThan(10)
+        );
     }
 
     @Test
     void canOpenAvailableExample() {
-        open(URL, MainPage.class)
-                .openAvailableExample("Form Authentication");
+        open(HEROKUAPP_COM, MainPage.class).openAvailableExample("Form Authentication");
+        assertEquals(
+                "https://the-internet.herokuapp.com/login", url()
+        );
     }
 }

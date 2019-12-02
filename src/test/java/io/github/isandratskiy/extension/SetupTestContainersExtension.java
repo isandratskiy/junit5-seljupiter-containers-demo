@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.junit.jupiter.Container;
 
-import static io.github.isandratskiy.driver.WebDriverContainer.*;
+import static io.github.isandratskiy.driver.WebDriverProvider.*;
 
 public class SetupTestContainersExtension implements BeforeEachCallback, AfterEachCallback {
     private WebDriver driver;
