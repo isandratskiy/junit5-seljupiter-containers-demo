@@ -1,4 +1,4 @@
-package io.github.isandratskiy;
+package io.github.isandratskiy.page;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;

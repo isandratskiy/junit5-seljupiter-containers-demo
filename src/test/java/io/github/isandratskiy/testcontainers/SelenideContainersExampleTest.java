@@ -1,6 +1,6 @@
 package io.github.isandratskiy.testcontainers;
 
-import io.github.isandratskiy.MainPage;
+import io.github.isandratskiy.page.MainPage;
 import io.github.isandratskiy.extension.SetupSelenideTestContainersExtension;
 import io.github.isandratskiy.junit5.feature.meta_annotation.SetupSelenideContainers;
 import org.junit.jupiter.api.BeforeEach;

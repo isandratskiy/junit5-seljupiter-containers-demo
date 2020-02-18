@@ -1,4 +1,4 @@
-package io.github.isandratskiy.selenium.jupiter;
+package io.github.isandratskiy.seleniumjupiter;
 
 import io.github.bonigarcia.seljup.DockerBrowser;
 import io.github.bonigarcia.seljup.SeleniumExtension;

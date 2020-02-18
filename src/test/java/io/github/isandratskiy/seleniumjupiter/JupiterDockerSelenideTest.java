@@ -1,9 +1,9 @@
-package io.github.isandratskiy.selenium.jupiter;
+package io.github.isandratskiy.seleniumjupiter;
 
 import com.codeborne.selenide.SelenideDriver;
 import io.github.bonigarcia.seljup.DockerBrowser;
 import io.github.bonigarcia.seljup.SeleniumExtension;
-import io.github.isandratskiy.MainPage;
+import io.github.isandratskiy.page.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
