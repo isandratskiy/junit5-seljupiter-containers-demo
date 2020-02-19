@@ -19,7 +19,8 @@ class TestContainersBaseTest {
     protected WebDriver driver;
 
     @Container
-    private BrowserWebDriverContainer container = new BrowserWebDriverContainer()
+    private BrowserWebDriverContainer container =
+            new BrowserWebDriverContainer()
                     .withCapabilities(new ChromeOptions())
                     .withRecordingMode(RECORD_ALL, new File("./build/"))
                     .withRecordingFileFactory(new DefaultRecordingFileFactory());

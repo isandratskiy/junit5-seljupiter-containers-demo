@@ -38,7 +38,7 @@ tasks.withType(Test::class) {
     useJUnitPlatform()
     testLogging {
         displayGranularity = 5
-        showStackTraces = true
+        showStackTraces = false
         showExceptions = true
         showStandardStreams = false
         events("passed", "failed")

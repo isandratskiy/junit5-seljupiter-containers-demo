@@ -23,6 +23,7 @@ public class SetupSelenideExtension implements BeforeEachCallback, AfterEachCall
         browser = ChromeDriverProvider.class.getName();
         startMaximized = true;
         fastSetValue = true;
+        baseUrl = "https://the-internet.herokuapp.com";
         browserCapabilities.acceptInsecureCerts();
         timeout = SECONDS.toMillis(20);
     }

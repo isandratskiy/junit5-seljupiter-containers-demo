@@ -23,14 +23,13 @@ class JupiterSelenideAssertAllExampleTest {
     @SelenideConfiguration
     static SelenideConfig selenideConfig = new SelenideConfig()
             .browser(CHROME)
+            .baseUrl("https://the-internet.herokuapp.com")
             .startMaximized(true)
             .headless(true);
 
     @BeforeEach
     void arrange(SelenideDriver driver) {
-        this.mainPage = driver.open(
-                "https://the-internet.herokuapp.com", MainPage.class
-        );
+        this.mainPage = driver.open("/", MainPage.class);
         setWebDriver(driver.getWebDriver());
     }
 
@@ -38,7 +37,7 @@ class JupiterSelenideAssertAllExampleTest {
     void canAssertAllWithSelenideConfig() {
         ElementsCollection elements = mainPage.getExamplesList();
         assertAll(
-                () -> assertEquals(43, elements.size()),
+                () -> assertEquals(44, elements.size()),
                 () -> assertEquals("Basic Auth", elements.findBy(text("Auth")).text())
         );
     }

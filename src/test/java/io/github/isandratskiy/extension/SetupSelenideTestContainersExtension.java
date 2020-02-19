@@ -16,13 +16,15 @@ public class SetupSelenideTestContainersExtension implements BeforeEachCallback,
     private WebDriver driver;
 
     @Container
-    private BrowserWebDriverContainer container = new BrowserWebDriverContainer()
-            .withCapabilities(new FirefoxOptions());
+    private BrowserWebDriverContainer container =
+            new BrowserWebDriverContainer()
+                    .withCapabilities(new FirefoxOptions());
 
     @Override
     public void beforeAll(ExtensionContext context) {
         screenshots = true;
         startMaximized = true;
+        baseUrl = "https://the-internet.herokuapp.com";
     }
 
     @Override

@@ -20,7 +20,7 @@ class NestedClassExampleTest {
 
     @BeforeEach
     void arrange() {
-        open(URL);
+        open("/");
     }
 
     @Nested

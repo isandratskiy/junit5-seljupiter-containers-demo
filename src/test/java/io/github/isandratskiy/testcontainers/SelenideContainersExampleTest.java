@@ -17,13 +17,12 @@ class SelenideContainersExampleTest {
     private MainPage mainPage;
 
     @RegisterExtension
-    SetupSelenideTestContainersExtension setup = new SetupSelenideTestContainersExtension();
+    SetupSelenideTestContainersExtension setup =
+            new SetupSelenideTestContainersExtension();
 
     @BeforeEach
     void arrange() {
-        this.mainPage = open(
-                "https://the-internet.herokuapp.com/", MainPage.class
-        );
+        this.mainPage = open("/", MainPage.class);
     }
 
     @Test
