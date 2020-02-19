@@ -15,9 +15,7 @@ public class SetupTestContainersExtension implements BeforeEachCallback, AfterEa
 
     @Container
     private BrowserWebDriverContainer container =
-            new BrowserWebDriverContainer().withCapabilities(
-                    new FirefoxOptions()
-            );
+            new BrowserWebDriverContainer().withCapabilities(new FirefoxOptions());
 
     @Override
     public void beforeEach(ExtensionContext context) {
