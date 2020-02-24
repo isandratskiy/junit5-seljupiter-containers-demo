@@ -1,5 +1,6 @@
 plugins {
     java
+    id("io.freefair.lombok") version "4.1.6"
 }
 
 group = "junit5-seljupiter-containers-demo"
@@ -12,7 +13,6 @@ repositories {
 
 val junitVersion = "5.5.2"
 val testContainersVersion = "1.12.3"
-val lombokVersion = "1.18.10"
 val selenideVersion = "5.5.0"
 val seleniumVersion = "3.141.59"
 val seleniumJupiterVersion = "3.3.2"
@@ -26,25 +26,25 @@ dependencies {
     compile("org.testcontainers", "testcontainers", testContainersVersion)
     compile("org.testcontainers", "junit-jupiter", testContainersVersion)
     compile("org.testcontainers", "selenium", testContainersVersion)
-    compile("org.projectlombok", "lombok", lombokVersion)
-    annotationProcessor("org.projectlombok", "lombok", lombokVersion)
 }
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
-tasks.withType(Test::class) {
-    useJUnitPlatform()
-    testLogging {
-        displayGranularity = 5
-        showStackTraces = false
-        showExceptions = true
-        showStandardStreams = false
-        events("passed", "failed")
+tasks {
+    withType(Test::class) {
+        useJUnitPlatform()
+        testLogging {
+            displayGranularity = 5
+            showStackTraces = false
+            showExceptions = true
+            showStandardStreams = false
+            events("passed", "failed")
+        }
     }
-}
 
-tasks.withType(Wrapper::class) {
-    gradleVersion = "5.6.4"
+    withType(Wrapper::class) {
+        gradleVersion = "5.6.4"
+    }
 }
