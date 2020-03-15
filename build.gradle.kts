@@ -37,9 +37,9 @@ tasks {
         useJUnitPlatform()
         testLogging {
             displayGranularity = 5
-            showStackTraces = false
+            showStackTraces = true
             showExceptions = true
-            showStandardStreams = true
+            showStandardStreams = false
             events("passed", "failed")
         }
     }
