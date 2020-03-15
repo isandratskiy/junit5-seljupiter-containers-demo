@@ -36,7 +36,7 @@ tasks {
     withType(Test::class) {
         useJUnitPlatform()
         testLogging {
-            displayGranularity = 5
+            displayGranularity = 4
             showStackTraces = true
             showExceptions = true
             showStandardStreams = false
