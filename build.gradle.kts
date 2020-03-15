@@ -39,7 +39,7 @@ tasks {
             displayGranularity = 5
             showStackTraces = false
             showExceptions = true
-            showStandardStreams = false
+            showStandardStreams = true
             events("passed", "failed")
         }
     }
