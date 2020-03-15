@@ -37,12 +37,8 @@ class ParameterizedExampleTest {
 
     private static Stream<Arguments> browserProvider() {
         return Stream.of(
-                of(
-                        new BrowserWebDriverContainer().withCapabilities(new ChromeOptions()), "chrome"
-                ),
-                of(
-                        new BrowserWebDriverContainer().withCapabilities(new FirefoxOptions()), "firefox"
-                )
+                of(new BrowserWebDriverContainer().withCapabilities(new ChromeOptions()), "chrome"),
+                of(new BrowserWebDriverContainer().withCapabilities(new FirefoxOptions()), "firefox")
         );
     }
 }
